@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Products = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: [true, 'Nome Obrigatório?']
     },
     price: {
         type: Number,
@@ -12,6 +12,10 @@ var Products = new mongoose.Schema({
     quantity: {
         type: Number,
         required: true
+    },
+    sexo: {
+        type: String,
+        required: false
     },
     date: {
         type: Date,

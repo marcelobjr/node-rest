@@ -1,8 +1,12 @@
-var Products = require('./../entity/products');
+var Testes = require('./../entity/teste');
+var validator = require('./../validators/teste');
+
 
 var Service = function(req, res, next) {
 
-    var product = new Products(req.body);
+    var product = new Testes(req.body);
+
+    console.log(validator(product));
 
     product
         .save()
@@ -25,7 +29,6 @@ var Service = function(req, res, next) {
             return res.status(500)
                       .json({
                           status: false,
-                          error: err,
                           data  : {}
                       });
         });
